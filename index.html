@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Seguimiento Domicilios</title>
+
+  <!-- POWER BI CLIENT -->
+  <script src="https://cdn.jsdelivr.net/npm/powerbi-client@2.23.1/dist/powerbi.min.js"></script>
+</head>
+
+<body style="margin:0; font-family: Arial, sans-serif;">
+
+  <div style="padding:12px; background:#140087; color:white;">
+    <b>DOMICILIOS – SEGUIMIENTO</b>
+  </div>
+
+  <div id="reportContainer" style="height: calc(100vh - 48px);"></div>
+
+  <script>
+    const models = window['powerbi-client'].models;
+
+    const config = {
+      type: "report",
+      embedUrl: "https://app.powerbi.com/view?r=eyJrIjoiMjZmOTlhMDUtYjAwZS00ZjUxLTg0N2YtMWFlNThiMjkzYmZkIiwidCI6IjNiMzYwOWViLWZiNDEtNGJhZS04NTM4LTI1ZTlhN2Q1YmUzMiIsImMiOjR9",
+      accessToken: null,
+      tokenType: models.TokenType.Embed,
+      settings: {
+        panes: {
+          filters: { visible: false },
+          pageNavigation: { visible: false }
+        }
+      }
+    };
+
+    const container = document.getElementById("reportContainer");
+    powerbi.embed(container, config);
+  </script>
+
+</body>
+</html>
